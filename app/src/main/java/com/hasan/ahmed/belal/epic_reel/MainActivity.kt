@@ -22,5 +22,6 @@ class MainActivity : AppCompatActivity() {
         binding.main.setOnClickListener {
             Toast.makeText(this, "new branch", Toast.LENGTH_SHORT).show()
         }
+
     }
 }
