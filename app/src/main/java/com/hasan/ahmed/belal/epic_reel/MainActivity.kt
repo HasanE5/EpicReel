@@ -1,6 +1,7 @@
 package com.hasan.ahmed.belal.epic_reel
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
         binding.main.setOnClickListener {
+            Toast.makeText(this, "new branch", Toast.LENGTH_SHORT).show()
         }
     }
 }
