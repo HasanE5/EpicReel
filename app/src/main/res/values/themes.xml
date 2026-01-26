@@ -1,9 +1,19 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.Epic_reel" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:fontFamily">@font/saira_font</item>
+        <item name="fontFamily">@font/saira_font</item>
     </style>
 
-    <style name="Theme.Epic_reel" parent="Base.Theme.Epic_reel" />
+    <!-- Light Mode Colors -->
+    <color name="main_background">#EAEAEA</color>
+    <color name="primary_text">#121212</color>
+    <color name="secondary_text">#666666</color>
+    <color name="accent_red">#E63946</color>
+    <color name="accent_gold">#FFCC33</color>
+    <color name="field_background">#F2F2F2</color>
+    <color name="field_border">#DDDDDD</color>
+    <color name="icon_tint">#000B3B</color>
+    <color name="back_icon_color">#121212</color>
+
 </resources>
