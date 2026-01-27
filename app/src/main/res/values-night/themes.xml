@@ -3,14 +3,15 @@
     <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:fontFamily">@font/saira_font</item>
         <item name="fontFamily">@font/saira_font</item>
+        <item name="colorControlNormal">#FFFFFF</item>
     </style>
     <!-- Dark Mode Colors -->
     <color name="main_background">#121720</color>
     <color name="primary_text">#FFFFFF</color>
-    <color name="secondary_text">#B0B0B0</color>
+    <color name="secondary_text">#666666</color>
     <color name="accent_red">#E63946</color>
     <color name="accent_gold">#FFCC33</color>
-    <color name="field_background">#1C1F26</color>
+    <color name="field_background">#43455170</color>
     <color name="field_border">#2C2F36</color>
     <color name="icon_tint">#FFFFFF</color>
     <color name="back_icon_color">#FFFFFF</color>

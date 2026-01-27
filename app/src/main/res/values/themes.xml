@@ -3,6 +3,7 @@
     <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:fontFamily">@font/saira_font</item>
         <item name="fontFamily">@font/saira_font</item>
+        <item name="colorControlNormal">#000000</item>
     </style>
 
     <!-- Light Mode Colors -->
