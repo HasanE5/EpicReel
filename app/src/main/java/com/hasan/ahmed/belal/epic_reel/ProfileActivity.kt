@@ -23,5 +23,22 @@ class ProfileActivity : AppCompatActivity() {
         binding.btnEdit.setOnClickListener {
             startActivity(Intent(this, EditProfileActivity::class.java))
         }
+
+        binding.bottomNav.selectedItemId = R.id.nav_profile
+        binding.bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_profile -> true
+//                R.id.nav_search -> {
+//                    startActivity(Intent(this, SearchActivity::class.java)) true
+//                }
+
+                 R.id.nav_home -> {
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                else -> false
+            }
+        }
     }
 }
