@@ -1,18 +1,17 @@
 package com.hasan.ahmed.belal.epic_reel
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.hasan.ahmed.belal.epic_reel.databinding.ActivityProfileBinding
+import com.hasan.ahmed.belal.epic_reel.databinding.ActivityEditProfileBinding
 
-class ProfileActivity : AppCompatActivity() {
+class EditProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        val binding = ActivityProfileBinding.inflate(layoutInflater)
+        val binding = ActivityEditProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -20,8 +19,13 @@ class ProfileActivity : AppCompatActivity() {
             insets
         }
 
-        binding.btnEdit.setOnClickListener {
-            startActivity(Intent(this, EditProfileActivity::class.java))
+        binding.cancelButton.setOnClickListener {
+            finish()
         }
+
+        binding.saveButton.setOnClickListener {
+            finish()
+        }
+
     }
 }
