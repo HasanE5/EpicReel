@@ -8,7 +8,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hasan.ahmed.belal.epic_reel.Adapter.MoviesAdapter
+import com.hasan.ahmed.belal.epic_reel.Adapter.TrendMoviesAdapter
 import com.hasan.ahmed.belal.epic_reel.databinding.ActivityMainBinding
+import com.hasan.ahmed.belal.epic_reel.model.Movies
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,10 +37,97 @@ class MainActivity : AppCompatActivity() {
         }
 
         val movies = mutableListOf<Movies>()
-        movies.add(Movies("Interstellar", R.drawable.interstellar, "2014", "2h 18m", "4.9", "Interstellar is about astronauts searching for a new home for humanity while a father tries to reunite with his daughter."))
-        movies.add(Movies("The Dark knight", R.drawable.the_dark_knight, "2008", "2h 18m", "4.8", "The Dark knight is about astronauts searching for a new home for humanity while a father tries to reunite with his daughter"))
+        movies.add(
+            Movies(
+                "Interstellar",
+                R.drawable.interstellar,
+                "2014",
+                "2h 18m",
+                "4.9",
+                "Interstellar is about astronauts searching for a new home for humanity while a father tries to reunite with his daughter."
+            )
+        )
+        movies.add(
+            Movies(
+                "The Dark knight",
+                R.drawable.the_dark_knight,
+                "2008",
+                "2h 18m",
+                "4.8",
+                "The Dark knight is about astronauts searching for a new home for humanity while a father tries to reunite with his daughter"
+            )
+        )
         val adapter = MoviesAdapter(movies)
         binding.posters.adapter = adapter
-        binding.posters.layoutManager = LinearLayoutManager( this, LinearLayoutManager.HORIZONTAL, true )
+        binding.posters.layoutManager = LinearLayoutManager( this, LinearLayoutManager.HORIZONTAL, false )
+
+        val trendingMovies = mutableListOf<Movies>()
+
+        trendingMovies.add(
+            Movies(
+                "Interstellar",
+                R.drawable.interstellar,
+                "2014",
+                "2h 18m",
+                "4.9",
+                "Interstellar is about astronauts searching for a new home for humanity while a father tries to reunite with his daughter."
+            )
+        )
+        trendingMovies.add(
+            Movies(
+                "The Dark knight",
+                R.drawable.the_dark_knight,
+                "2008",
+                "2h 18m",
+                "4.8",
+                "The Dark knight is about astronauts searching for a new home for humanity while a father tries to reunite with his daughter"
+            )
+        )
+        trendingMovies.add(
+            Movies(
+                "Interstellar",
+                R.drawable.interstellar,
+                "2014",
+                "2h 18m",
+                "4.9",
+                "Interstellar is about astronauts searching for a new home for humanity while a father tries to reunite with his daughter."
+            )
+        )
+        trendingMovies.add(
+            Movies(
+                "The Dark knight",
+                R.drawable.the_dark_knight,
+                "2008",
+                "2h 18m",
+                "4.8",
+                "The Dark knight is about astronauts searching for a new home for humanity while a father tries to reunite with his daughter"
+            )
+        )
+        trendingMovies.add(
+            Movies(
+                "Interstellar",
+                R.drawable.interstellar,
+                "2014",
+                "2h 18m",
+                "4.9",
+                "Interstellar is about astronauts searching for a new home for humanity while a father tries to reunite with his daughter."
+            )
+        )
+        trendingMovies.add(
+            Movies(
+                "The Dark knight",
+                R.drawable.the_dark_knight,
+                "2008",
+                "2h 18m",
+                "4.8",
+                "The Dark knight is about astronauts searching for a new home for humanity while a father tries to reunite with his daughter"
+            )
+        )
+
+
+        val trendingMoviesAdapter = TrendMoviesAdapter(trendingMovies)
+        binding.trendingMovies.adapter = trendingMoviesAdapter
+        binding.trendingMovies.layoutManager = LinearLayoutManager( this, LinearLayoutManager.HORIZONTAL, false )
+
     }
 }

@@ -4,17 +4,17 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.hasan.ahmed.belal.epic_reel.model.Movies
-import com.hasan.ahmed.belal.epic_reel.databinding.BigPosterBinding
+import com.hasan.ahmed.belal.epic_reel.databinding.TrendingMoviesBinding
 
 
-class MoviesAdapter(
+class TrendMoviesAdapter(
     private val list: MutableList<Movies>
-) : RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<TrendMoviesAdapter.ViewHolder>() {
 
-    class ViewHolder(val binding: BigPosterBinding) : RecyclerView.ViewHolder(binding.root)
+    class ViewHolder(val binding: TrendingMoviesBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = BigPosterBinding.inflate(
+        val binding = TrendingMoviesBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false
@@ -24,12 +24,9 @@ class MoviesAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val movie = list[position]
-        holder.binding.title.text = movie.name
-        holder.binding.imagePoster.setImageResource(movie.image)
-        holder.binding.rate.text = movie.rating
-        holder.binding.date.text = movie.date
-        holder.binding.time.text = movie.time
-        holder.binding.description.text = movie.description
+        holder.binding.movieTitle.text = movie.name
+        holder.binding.movieImage.setImageResource(movie.image)
+        holder.binding.movieRate.text = movie.rating
     }
 
     override fun getItemCount(): Int = list.size

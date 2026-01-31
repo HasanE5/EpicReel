@@ -10,8 +10,8 @@
 
     <ImageView
         android:id="@+id/image_poster"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="411dp"
+        android:layout_height="619dp"
         android:scaleType="fitStart"
         android:src="@drawable/the_dark_knight"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="150dp"
         android:layout_marginEnd="25dp"
         app:layout_constraintBottom_toBottomOf="@+id/image_poster"
         app:layout_constraintEnd_toEndOf="@+id/image_poster"
