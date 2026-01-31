@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/AppTheme">
+
+
+    <ImageView
+        android:id="@+id/image_poster"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitStart"
+        android:src="@drawable/fade_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="25dp"
+        app:layout_constraintBottom_toBottomOf="@+id/image_poster"
+        app:layout_constraintEnd_toEndOf="@+id/image_poster"
+        app:layout_constraintStart_toStartOf="@id/image_poster"
+        app:layout_constraintTop_toTopOf="@id/image_poster">
+
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Interstellar"
+            android:textColor="@color/primary_text"
+            android:textFontWeight="700"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/rate_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title"
+
+            >
+
+            <TextView
+                android:id="@+id/rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/accent_gold"
+                android:drawableStart="@drawable/star_svgrepo_com"
+                android:drawablePadding="4dp"
+                android:paddingStart="7dp"
+                android:paddingEnd="7dp"
+                android:text="4.9"
+                android:textColor="@color/black"
+                android:textFontWeight="500"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="7dp"
+            android:paddingEnd="7dp"
+            android:text="2014"
+            android:textColor="@color/primary_text"
+            android:textFontWeight="500"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/rate_card"
+            app:layout_constraintTop_toBottomOf="@+id/title" />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="7dp"
+            android:paddingEnd="7dp"
+            android:text="2h 18m"
+            android:textColor="@color/primary_text"
+            android:textFontWeight="500"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/year"
+            app:layout_constraintTop_toBottomOf="@+id/title" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="7dp"
+            android:paddingEnd="7dp"
+            android:text="Interstellar is about astronauts searching for a new home for humanity while a father tries to reunite with his daughter."
+            android:textColor="@color/primary_text"
+            android:textFontWeight="300"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rate_card" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="▶ Watch Now"
+            android:textColor="@color/primary_text"
+            android:textFontWeight="600"
+            android:textSize="12sp"
+            android:backgroundTint="@color/accent_red"
+            android:gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/description"
+            app:cornerRadius="8dp"/>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

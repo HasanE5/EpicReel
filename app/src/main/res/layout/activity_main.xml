@@ -9,6 +9,10 @@
     android:paddingBottom="15dp"
     tools:context=".MainActivity">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/posters"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -22,23 +26,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
-        <Button
-            android:id="@+id/btn_about"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="About"
-            android:textFontWeight="500"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/btn_profile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="setting"
-            android:textFontWeight="500"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
