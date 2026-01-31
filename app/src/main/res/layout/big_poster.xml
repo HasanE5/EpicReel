@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/main_background"
     android:theme="@style/AppTheme">
 
 
@@ -12,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scaleType="fitStart"
-        android:src="@drawable/fade_bottom"
+        android:src="@drawable/the_dark_knight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -21,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="25dp"
         app:layout_constraintBottom_toBottomOf="@+id/image_poster"
         app:layout_constraintEnd_toEndOf="@+id/image_poster"
@@ -35,7 +36,7 @@
             android:layout_height="wrap_content"
             android:text="Interstellar"
             android:textColor="@color/primary_text"
-            android:textFontWeight="700"
+            android:textFontWeight="900"
             android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -68,14 +69,14 @@
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/year"
+            android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingStart="7dp"
             android:paddingEnd="7dp"
             android:text="2014"
             android:textColor="@color/primary_text"
-            android:textFontWeight="500"
+            android:textFontWeight="600"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/rate_card"
@@ -89,18 +90,17 @@
             android:paddingEnd="7dp"
             android:text="2h 18m"
             android:textColor="@color/primary_text"
-            android:textFontWeight="500"
+            android:textFontWeight="600"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/year"
+            app:layout_constraintStart_toEndOf="@+id/date"
             app:layout_constraintTop_toBottomOf="@+id/title" />
 
         <TextView
             android:id="@+id/description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingStart="7dp"
-            android:paddingEnd="7dp"
+            android:layout_marginTop="5dp"
             android:text="Interstellar is about astronauts searching for a new home for humanity while a father tries to reunite with his daughter."
             android:textColor="@color/primary_text"
             android:textFontWeight="300"
@@ -112,16 +112,16 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="@color/accent_red"
+            android:gravity="center"
             android:text="▶ Watch Now"
             android:textColor="@color/primary_text"
             android:textFontWeight="600"
             android:textSize="12sp"
-            android:backgroundTint="@color/accent_red"
-            android:gravity="center"
+            app:cornerRadius="8dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/description"
-            app:cornerRadius="8dp"/>
-
+            app:layout_constraintTop_toBottomOf="@id/description" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

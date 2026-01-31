@@ -16,5 +16,6 @@
     <color name="field_border">#DDDDDD</color>
     <color name="icon_tint">#000B3B</color>
     <color name="back_icon_color">#121212</color>
+    <color name="graident_color">#FFFFFF</color>
 
 </resources>
