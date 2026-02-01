@@ -4,8 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hasan.ahmed.belal.epic_reel.Adapter.MoviesAdapter
 import com.hasan.ahmed.belal.epic_reel.Adapter.ReleasesMoviesAdapter
@@ -46,7 +45,7 @@ class MainActivity : AppCompatActivity() {
                 "2019",
                 "3h 1m",
                 "4.6",
-                "Avengers: Endgame* is about the heroes fighting Thanos. They bring back their friends, and Iron Man saves everyone."
+                "Avengers: Endgame is about the heroes fighting Thanos. They bring back their friends, and Iron Man saves everyone."
             )
         )
         movies.add(
@@ -68,12 +67,12 @@ class MainActivity : AppCompatActivity() {
 
         trendingMovies.add(
             Movies(
-                "Avengers\nEndgame",
+                "Avengers Endgame",
                 R.drawable.avengers_endgame_poster,
                 "2019",
                 "3h 1m",
                 "4.6",
-                "Avengers: Endgame* is about the heroes fighting Thanos. They bring back their friends, and Iron Man saves everyone."
+                "Avengers: Endgame is about the heroes fighting Thanos. They bring back their friends, and Iron Man saves everyone."
             )
         )
 
@@ -99,7 +98,7 @@ class MainActivity : AppCompatActivity() {
         )
         trendingMovies.add(
             Movies(
-                "Avengers\nAge Of Ultron",
+                "Avengers Age Of Ultron",
                 R.drawable.avengers_age_of_ultron_poster,
                 "2015",
                 "2h 21m",
@@ -109,7 +108,7 @@ class MainActivity : AppCompatActivity() {
         )
         trendingMovies.add(
             Movies(
-                "Avengers\nInfinity War",
+                "Avengers Infinity War",
                 R.drawable.avengers_infinity_war_poster,
                 "2018",
                 "2h 29m",
@@ -159,7 +158,7 @@ class MainActivity : AppCompatActivity() {
 
         releasesMovies.add(
             Movies(
-                "Super Mario\nGalaxy",
+                "Super Mario Galaxy",
                 R.drawable.super_mario_poster,
                 "2026",
                 "unknown",
@@ -188,12 +187,9 @@ class MainActivity : AppCompatActivity() {
             )
         )
 
-
         val releasesMoviesAdapter = ReleasesMoviesAdapter(releasesMovies)
         binding.releasesMovies.adapter = releasesMoviesAdapter
         binding.releasesMovies.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-
-
     }
 }
