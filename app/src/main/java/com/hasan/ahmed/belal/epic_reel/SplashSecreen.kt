@@ -22,6 +22,6 @@ class SplashSecreen : AppCompatActivity() {
         Handler().postDelayed({
             startActivity(Intent(this@SplashSecreen, MainActivity::class.java))
             finish()
-        }, 2000)
+        }, 1000)
     }
 }

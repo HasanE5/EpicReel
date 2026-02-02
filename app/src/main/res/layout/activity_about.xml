@@ -19,7 +19,6 @@
         android:text="about"
         android:textAllCaps="false"
         android:textColor="@color/primary_text"
-        android:textFontWeight="600"
         android:textSize="24sp"
         android:textStyle="bold"
         app:cornerRadius="12dp"
@@ -41,14 +40,14 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="15dp"
-        android:paddingEnd="15dp"
-        android:paddingStart="15dp"
         android:layout_marginBottom="10dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
         android:scrollbars="none"
-        app:layout_constraintTop_toBottomOf="@+id/logo"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/logo">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -71,28 +70,27 @@
                     android:drawablePadding="10dp"
                     android:text="About the App"
                     android:textColor="@color/primary_text"
-                    android:textFontWeight="550"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
+                    android:textSize="20sp"
+                    android:textStyle="normal" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:text="EpicReel is your ultimate destination for discovering and exploring cinematic masterpieces. Browse through our curated collection of movies, save your favorites, and never miss a new release."
                     android:textColor="@color/secondary_text"
-                    android:textFontWeight="300"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/version"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:background="@drawable/rounded_background"
                 android:orientation="vertical"
-                android:padding="10dp"
-                android:layout_marginTop="15dp">
+                android:padding="10dp">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -101,28 +99,27 @@
                     android:drawablePadding="10dp"
                     android:text="Version"
                     android:textColor="@color/primary_text"
-                    android:textFontWeight="550"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
+                    android:textSize="20sp"
+                    android:textStyle="normal" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:text="1.0.0"
                     android:textColor="@color/secondary_text"
-                    android:textFontWeight="300"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/developer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:background="@drawable/rounded_background"
                 android:orientation="vertical"
-                android:padding="10dp"
-                android:layout_marginTop="15dp">
+                android:padding="10dp">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -131,28 +128,27 @@
                     android:drawablePadding="10dp"
                     android:text="Developer"
                     android:textColor="@color/primary_text"
-                    android:textFontWeight="550"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
+                    android:textSize="20sp"
+                    android:textStyle="normal" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:text="EpicReel Development Team"
                     android:textColor="@color/secondary_text"
-                    android:textFontWeight="300"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/features"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:background="@drawable/rounded_background"
                 android:orientation="vertical"
-                android:padding="10dp"
-                android:layout_marginTop="15dp">
+                android:padding="10dp">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -161,18 +157,17 @@
                     android:drawablePadding="10dp"
                     android:text="Features"
                     android:textColor="@color/primary_text"
-                    android:textFontWeight="550"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
+                    android:textSize="20sp"
+                    android:textStyle="normal" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:text="• Browse thousands of movies\n• Save favorites for quick access\n• Rate and review movies\n• Discover by genre\n• Dark and light theme support\n• Personalized recommendations"
                     android:textColor="@color/secondary_text"
-                    android:textFontWeight="300"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
