@@ -2,22 +2,5 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <!-- Dark Mode Colors -->
-    <color name="dark_background">#121720</color>
-    <color name="dark_primary_text">#FFFFFF</color>
-    <color name="dark_secondary_text">#B0B0B0</color>
-    <color name="dark_accent_red">#E63946</color>
-    <color name="dark_accent_gold">#FFCC33</color>
-    <color name="dark_field_background">#1C1F26</color>
-    <color name="dark_field_border">#2C2F36</color>
-
-    <!-- Light Mode Colors -->
-    <color name="light_background">#FFFFFF</color>
-    <color name="light_primary_text">#121212</color>
-    <color name="light_secondary_text">#666666</color>
-    <color name="light_accent_red">#E63946</color>
-    <color name="light_accent_gold">#FFCC33</color>
-    <color name="light_field_background">#F2F2F2</color>
-    <color name="light_field_border">#DDDDDD</color>
-
+    <color name="transparent">#00FFFFFF</color>
 </resources>
