@@ -7,7 +7,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.hasan.ahmed.belal.epic_reel.Adapter.SearchAdapter
 import com.hasan.ahmed.belal.epic_reel.databinding.ActivitySearchBinding
 import com.hasan.ahmed.belal.epic_reel.model.Movies
@@ -44,27 +47,43 @@ class SearchActivity : AppCompatActivity() {
             }
         }
 
-        val file = intent.getStringExtra("movies")
+        val json = intent.getStringExtra("movies")
 
-        val allMovies = Gson().fromJson(file, Array<Movies>::class.java).toMutableList()
+        val allMovies = Gson().fromJson(json, Array<Movies>::class.java).toMutableList()
 
-        val searchMovies = mutableListOf<Movies>()
-        val adapter = SearchAdapter(searchMovies)
+        binding.movies.layoutManager = GridLayoutManager(this, 2)
 
         binding.btnSearch.setOnClickListener {
-            val searchText = binding.etName.text.toString()
+            val searchText = binding.etName.text.toString().trim()
 
-            for (movie in allMovies) {
-                if (movie.name.contains(searchText, ignoreCase = true)) {
-                    searchMovies.add(movie)
-                }
+            if (searchText.isEmpty()) {
+                binding.tvNotFound.text = "Please enter a movie name"
+                binding.tvNotFound.visibility = View.VISIBLE
+                binding.movies.adapter = null
+                return@setOnClickListener
+            }
 
-                if (searchMovies.isEmpty()) {
-                    binding.tvNotFound.visibility = View.VISIBLE
-                }
+            if (searchText.length <= 2) {
+                binding.tvNotFound.visibility = View.GONE
+                binding.tvNotFound.text = "This movie not found"
+                binding.tvNotFound.visibility = View.VISIBLE
+                binding.movies.adapter = null
+                return@setOnClickListener
+            }
+
+            val searchMovies = allMovies.filter {
+                it.name.contains(searchText, ignoreCase = true)
+            }
+
+            if (searchMovies.isEmpty()) {
+                binding.tvNotFound.text = "This movie not found"
+                binding.tvNotFound.visibility = View.VISIBLE
+                binding.movies.adapter = null
+            } else {
+                binding.tvNotFound.visibility = View.GONE
+                val adapter = SearchAdapter(searchMovies.toMutableList())
+                binding.movies.adapter = adapter
             }
         }
-
-
     }
 }
