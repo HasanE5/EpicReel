@@ -6,13 +6,15 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.hasan.ahmed.belal.epic_reel.databinding.ActivityProfileBinding
+import com.hasan.ahmed.belal.epic_reel.Adapter.SearchAdapter
+import com.hasan.ahmed.belal.epic_reel.databinding.ActivitySearchBinding
+import com.hasan.ahmed.belal.epic_reel.model.Movies
 
-class ProfileActivity : AppCompatActivity() {
+class SearchActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        val binding = ActivityProfileBinding.inflate(layoutInflater)
+        val binding = ActivitySearchBinding.inflate(layoutInflater)
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -20,28 +22,28 @@ class ProfileActivity : AppCompatActivity() {
             insets
         }
 
-        binding.btnEdit.setOnClickListener {
-            startActivity(Intent(this, EditProfileActivity::class.java))
-        }
-
-        binding.bottomNav.selectedItemId = R.id.nav_profile
+        binding.bottomNav.selectedItemId = R.id.nav_search
         binding.bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.nav_profile -> true
-
-                R.id.nav_search -> {
-                    val intent = Intent(this, SearchActivity::class.java)
-                    startActivity(intent)
-                    true
-                }
-
-                 R.id.nav_home -> {
+                R.id.nav_search -> true
+                R.id.nav_home -> {
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                     true
                 }
+
+                R.id.nav_profile -> {
+                    val intent = Intent(this, ProfileActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+
                 else -> false
             }
         }
+
+        val searchMovies = mutableListOf<Movies>()
+        val adapter = SearchAdapter(searchMovies)
+
     }
 }

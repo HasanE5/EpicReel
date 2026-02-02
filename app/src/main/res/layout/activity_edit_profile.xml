@@ -128,7 +128,6 @@
                 app:cornerRadius="8dp"
                 app:strokeColor="@color/accent_red"
                 app:strokeWidth="2dp"
-
                 />
 
             <Button

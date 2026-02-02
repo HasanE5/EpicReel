@@ -85,6 +85,32 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/releases_title" />
 
+            <TextView
+                android:id="@+id/all_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="25dp"
+                android:drawableStart="@drawable/reel"
+                android:drawablePadding="5dp"
+                android:text="All Movies"
+                android:textColor="@color/primary_text"
+                android:textSize="18sp"
+                android:textStyle="normal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/releases_movies" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/all_movies"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:scrollbars="none"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/all_title" />
+
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
