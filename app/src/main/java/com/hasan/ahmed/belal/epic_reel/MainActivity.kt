@@ -5,12 +5,14 @@ import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.gson.Gson
 import com.hasan.ahmed.belal.epic_reel.Adapter.AllMoviesAdapter
 import com.hasan.ahmed.belal.epic_reel.Adapter.MoviesAdapter
 import com.hasan.ahmed.belal.epic_reel.Adapter.ReleasesMoviesAdapter
 import com.hasan.ahmed.belal.epic_reel.Adapter.TrendMoviesAdapter
 import com.hasan.ahmed.belal.epic_reel.databinding.ActivityMainBinding
 import com.hasan.ahmed.belal.epic_reel.model.Movies
+import java.io.Serial
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,25 +21,7 @@ class MainActivity : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.bottomNav.selectedItemId = R.id.nav_home
-        binding.bottomNav.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.nav_home -> true
-                R.id.nav_search -> {
-                    val intent = Intent(this, SearchActivity::class.java)
-                    startActivity(intent)
-                    true
-                }
 
-                R.id.nav_profile -> {
-                    val intent = Intent(this, ProfileActivity::class.java)
-                    startActivity(intent)
-                    true
-                }
-
-                else -> false
-            }
-        }
 
         val allMovies = mutableListOf<Movies>()
 
@@ -164,7 +148,7 @@ class MainActivity : AppCompatActivity() {
         binding.allMovies.adapter = adapterAll
         binding.allMovies.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-
+        val intent = Intent(this, SearchActivity::class.java)
 
 
         val bigPosterMovies = mutableListOf<Movies>()
@@ -321,5 +305,29 @@ class MainActivity : AppCompatActivity() {
         binding.releasesMovies.adapter = releasesMoviesAdapter
         binding.releasesMovies.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+
+
+
+        binding.bottomNav.selectedItemId = R.id.nav_home
+        binding.bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home -> true
+                R.id.nav_search -> {
+                    val allMovies = Gson().toJson(allMovies)
+                    val intent = Intent(this, SearchActivity::class.java)
+                    intent.putExtra("movies", allMovies)
+                    startActivity(intent)
+                    true
+                }
+
+                R.id.nav_profile -> {
+                    val intent = Intent(this, ProfileActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+
+                else -> false
+            }
+        }
     }
 }
