@@ -1,5 +1,6 @@
 package com.hasan.ahmed.belal.epic_reel
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +10,7 @@ import com.hasan.ahmed.belal.epic_reel.databinding.ActivityCreatAccountBinding
 
 class CreatAccountActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCreatAccountBinding
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
