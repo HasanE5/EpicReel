@@ -24,20 +24,20 @@ class SignUpActivity : AppCompatActivity() {
             insets
         }
 
-        // 1. منطق زر Sign In (باستخدام الـ ID الخاص بك: btnSign)
+
         binding.btnSign.setOnClickListener {
             val email = binding.editText.text.toString()
             val password = binding.editTextEnterPassword.text.toString()
 
             if (email.isNotEmpty() && password.isNotEmpty()) {
                 Toast.makeText(this, "Welcome Back!", Toast.LENGTH_SHORT).show()
-                // هنا تضع Intent للشاشة الرئيسية لاحقاً
+
             } else {
                 Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
             }
         }
 
-        // 2. الانتقال لشاشة إنشاء حساب (باستخدام الـ ID الخاص بك: textSignUp)
+
         binding.textSignUp.setOnClickListener {
             val intent = Intent(this, CreatAccountActivity::class.java)
             startActivity(intent)
