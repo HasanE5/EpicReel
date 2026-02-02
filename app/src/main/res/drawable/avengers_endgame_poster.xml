@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <bitmap
+            android:src="@drawable/avengers_endgame"
+            android:layout_gravity="bottom"
+            />
+    </item>
+    <item>
+        <shape>
+            <gradient
+                android:startColor="@android:color/transparent"
+                android:endColor="@color/main_background"
+                android:angle="270"
+                />
+        </shape>
+    </item>
+</layer-list>

@@ -1,7 +1,20 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.Epic_reel" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:fontFamily">@font/patua_one_regular</item>
+        <item name="fontFamily">@font/patua_one_regular</item>
+        <item name="colorControlNormal">#FFFFFF</item>
     </style>
+    <!-- Dark Mode Colors -->
+    <color name="main_background">#121720</color>
+    <color name="primary_text">#FFFFFF</color>
+    <color name="secondary_text">#C8C8C8</color>
+    <color name="accent_red">#E63946</color>
+    <color name="accent_gold">#FFCC33</color>
+    <color name="field_background">#43455170</color>
+    <color name="field_border">#2C2F36</color>
+    <color name="icon_tint">#FFFFFF</color>
+    <color name="back_icon_color">#FFFFFF</color>
+    <color name="graident_color">#000000</color>
+
 </resources>
