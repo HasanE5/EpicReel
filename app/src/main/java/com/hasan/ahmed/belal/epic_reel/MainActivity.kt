@@ -132,6 +132,7 @@ class MainActivity : AppCompatActivity() {
         )
 
 
+
         allMovies.add(
             Movies(
                 "Odyssey",
@@ -142,6 +143,8 @@ class MainActivity : AppCompatActivity() {
                 "The Odyssey (2026) is about Odysseus trying to get home after war, facing many dangers.",
             )
         )
+
+
 
 
         val adapterAll = AllMoviesAdapter(allMovies)
@@ -322,6 +325,12 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.nav_profile -> {
                     val intent = Intent(this, ProfileActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+
+                R.id.nav_favorites -> {
+                    val intent = Intent(this, FavoritesActivity::class.java)
                     startActivity(intent)
                     true
                 }

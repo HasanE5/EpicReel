@@ -5,7 +5,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.hasan.ahmed.belal.epic_reel.databinding.ActivityFavoritesBinding
+import com.hasan.ahmed.belal.epic_reel.Adapter.Genre
+import com.hasan.ahmed.belal.epic_reel.Adapter.GenreAdapter
 import com.hasan.ahmed.belal.epic_reel.databinding.ActivityGenresBinding
 
 class GenresActivity : AppCompatActivity() {

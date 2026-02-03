@@ -1,4 +1,4 @@
-package com.hasan.ahmed.belal.epic_reel
+package com.hasan.ahmed.belal.epic_reel.Adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.hasan.ahmed.belal.epic_reel.R
 
 class GenreAdapter(private val genreList: List<Genre>) :
     RecyclerView.Adapter<GenreAdapter.GenreViewHolder>() {

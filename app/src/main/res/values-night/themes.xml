@@ -16,5 +16,7 @@
     <color name="icon_tint">#FFFFFF</color>
     <color name="back_icon_color">#FFFFFF</color>
     <color name="graident_color">#000000</color>
+    <color name="graident_color2">#773B4B68</color>
+
 
 </resources>

@@ -6,11 +6,11 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo_with_background"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logo_with_background"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Epic_reel">
+        android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -20,6 +20,46 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".AboutActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".EditProfileActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".SearchActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".SplashSecreen"
+            android:exported="true"/>
+
+        <activity
+            android:name=".CreatAccountActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".FavoritesActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".GenresActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".SignUpActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".ViewMovieActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>

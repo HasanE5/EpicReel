@@ -40,6 +40,13 @@ class ProfileActivity : AppCompatActivity() {
                     startActivity(intent)
                     true
                 }
+
+                R.id.nav_favorites -> {
+                    val intent = Intent(this, FavoritesActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+
                 else -> false
             }
         }
