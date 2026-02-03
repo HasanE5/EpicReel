@@ -7,7 +7,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.gson.Gson
 import com.hasan.ahmed.belal.epic_reel.databinding.ActivitySignUpBinding
+import com.hasan.ahmed.belal.epic_reel.model.User
 
 class SignUpActivity : AppCompatActivity() {
 
@@ -28,13 +30,20 @@ class SignUpActivity : AppCompatActivity() {
         binding.btnSign.setOnClickListener {
             val email = binding.editText.text.toString()
             val password = binding.editTextEnterPassword.text.toString()
+            intent.getStringExtra("users")?.let {
+                val users = Gson().fromJson(it, Array<User>::class.java).toList()
+                val user = users.find { it.email == email && it.password == password }
 
-            if (email.isNotEmpty() && password.isNotEmpty()) {
-                Toast.makeText(this, "Welcome Back!", Toast.LENGTH_SHORT).show()
+                if (user != null) {
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
 
-            } else {
-                Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
+                }
             }
+
+
         }
 
 

@@ -12,6 +12,7 @@ import com.hasan.ahmed.belal.epic_reel.Adapter.ReleasesMoviesAdapter
 import com.hasan.ahmed.belal.epic_reel.Adapter.TrendMoviesAdapter
 import com.hasan.ahmed.belal.epic_reel.databinding.ActivityMainBinding
 import com.hasan.ahmed.belal.epic_reel.model.Movies
+import com.hasan.ahmed.belal.epic_reel.model.User
 import java.io.Serial
 
 class MainActivity : AppCompatActivity() {
@@ -324,8 +325,12 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.nav_profile -> {
-                    val intent = Intent(this, ProfileActivity::class.java)
-                    startActivity(intent)
+                    intent.getStringExtra("users")?.let {
+                        val users = Gson().fromJson(it, Array<User>::class.java).toList()
+                        val intent = Intent(this, ProfileActivity::class.java)
+                        intent.putExtra("users", it)
+                        startActivity(intent)
+                    }
                     true
                 }
 

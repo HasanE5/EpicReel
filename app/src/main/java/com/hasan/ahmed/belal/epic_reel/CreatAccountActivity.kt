@@ -6,7 +6,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.gson.Gson
 import com.hasan.ahmed.belal.epic_reel.databinding.ActivityCreatAccountBinding
+import com.hasan.ahmed.belal.epic_reel.model.User
 
 class CreatAccountActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCreatAccountBinding
@@ -22,6 +24,7 @@ class CreatAccountActivity : AppCompatActivity() {
             insets
         }
 
+        val users = mutableListOf<User>()
         binding.btnSgin.setOnClickListener {
             val name = binding.EditTextFullName.text.toString()
             val email = binding.EditTextEmail.text.toString()
@@ -29,15 +32,22 @@ class CreatAccountActivity : AppCompatActivity() {
             val confirmPass = binding.EditTextConfirmPassword.text.toString()
 
             if (name.isEmpty() || email.isEmpty() || pass.isEmpty()) {
-                android.widget.Toast.makeText(this, "الرجاء تعبئة جميع الحقول", android.widget.Toast.LENGTH_SHORT).show()
+                android.widget.Toast.makeText(this, "Enter all fields", android.widget.Toast.LENGTH_SHORT).show()
             } else if (pass != confirmPass) {
-                binding.EditTextConfirmPassword.error = "كلمات المرور غير متطابقة"
-            } else {
-
-                android.widget.Toast.makeText(this, "تم إنشاء الحساب بنجاح", android.widget.Toast.LENGTH_SHORT).show()
+                binding.EditTextConfirmPassword.error = "password does not match"
+            } else if (pass == confirmPass && pass.length < 8) {
+                binding.EditTextPassword.error = "password must be at least 8 characters"
+            }else {
+                val user = User(name, email, pass)
+                users.add(user)
+                val usersFile = Gson().toJson(users)
+                val intent = android.content.Intent(this, SignUpActivity::class.java)
+                intent.putExtra("users", usersFile)
+                val intent2 = android.content.Intent(this, MainActivity::class.java)
+                intent2.putExtra("users", usersFile)
+                startActivity(intent)
             }
         }
-
 
         binding.TextSignUp.setOnClickListener {
             finish()

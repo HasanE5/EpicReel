@@ -6,7 +6,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.gson.Gson
 import com.hasan.ahmed.belal.epic_reel.databinding.ActivityProfileBinding
+import com.hasan.ahmed.belal.epic_reel.model.User
 
 class ProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,6 +51,12 @@ class ProfileActivity : AppCompatActivity() {
 
                 else -> false
             }
+
+        }
+
+        intent.getStringExtra("users")?.let {
+            val users = Gson().fromJson(it, Array<User>::class.java).toList()
+            intent.putExtra("users", it)
         }
     }
 }
