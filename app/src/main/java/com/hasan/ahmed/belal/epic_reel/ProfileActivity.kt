@@ -8,6 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.gson.Gson
 import com.hasan.ahmed.belal.epic_reel.databinding.ActivityProfileBinding
+import com.hasan.ahmed.belal.epic_reel.model.Movies
 import com.hasan.ahmed.belal.epic_reel.model.User
 
 class ProfileActivity : AppCompatActivity() {
@@ -32,7 +33,9 @@ class ProfileActivity : AppCompatActivity() {
                 R.id.nav_profile -> true
 
                 R.id.nav_search -> {
-                    val allMovies = Gson().toJson(intent.getStringExtra("movies"))
+                    val movies = mutableListOf<Movies>()
+                    intent.getStringExtra("movies")
+                    val allMovies = Gson().toJson(movies)
                     val intent = Intent(this, SearchActivity::class.java)
                     intent.putExtra("movies", allMovies)
                     startActivity(intent)

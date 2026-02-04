@@ -13,6 +13,7 @@
     import com.hasan.ahmed.belal.epic_reel.Adapter.FavoritesAdapter
     import com.hasan.ahmed.belal.epic_reel.Adapter.SearchAdapter
     import com.hasan.ahmed.belal.epic_reel.databinding.ActivityFavoritesBinding
+    import com.hasan.ahmed.belal.epic_reel.model.Movies
 
     class FavoritesActivity : AppCompatActivity() {
         private lateinit var binding: ActivityFavoritesBinding
@@ -55,7 +56,11 @@
                     }
 
                     R.id.nav_search -> {
+                        val movies = mutableListOf<Movies>()
+                        intent.getStringExtra("movies")
+                        val allMovies = Gson().toJson(movies)
                         val intent = Intent(this, SearchActivity::class.java)
+                        intent.putExtra("movies", allMovies)
                         startActivity(intent)
                         true
                     }
