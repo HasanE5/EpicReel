@@ -8,9 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import com.hasan.ahmed.belal.epic_reel.Adapter.SearchAdapter
 import com.hasan.ahmed.belal.epic_reel.databinding.ActivitySearchBinding
 import com.hasan.ahmed.belal.epic_reel.model.Movies
@@ -54,8 +52,15 @@ class SearchActivity : AppCompatActivity() {
         }
 
         val json = intent.getStringExtra("movies")
-
-        val allMovies = Gson().fromJson(json, Array<Movies>::class.java).toMutableList()
+        val allMovies = if (json != null) {
+            try {
+                Gson().fromJson(json, Array<Movies>::class.java).toMutableList()
+            } catch (e: Exception) {
+                mutableListOf()
+            }
+        } else {
+            mutableListOf()
+        }
 
         binding.movies.layoutManager = GridLayoutManager(this, 2)
 
