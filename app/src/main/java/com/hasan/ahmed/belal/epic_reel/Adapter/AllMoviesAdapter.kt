@@ -30,7 +30,6 @@ class AllMoviesAdapter(
         holder.binding.movieTitle.text = movie.name
         holder.binding.movieImage.setImageResource(movie.image)
         holder.binding.movieRate.text = movie.rating
-
     }
 
     override fun getItemCount(): Int = list.size

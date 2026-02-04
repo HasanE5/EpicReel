@@ -32,7 +32,9 @@ class ProfileActivity : AppCompatActivity() {
                 R.id.nav_profile -> true
 
                 R.id.nav_search -> {
+                    val allMovies = Gson().toJson(intent.getStringExtra("movies"))
                     val intent = Intent(this, SearchActivity::class.java)
+                    intent.putExtra("movies", allMovies)
                     startActivity(intent)
                     true
                 }
@@ -52,11 +54,6 @@ class ProfileActivity : AppCompatActivity() {
                 else -> false
             }
 
-        }
-
-        intent.getStringExtra("users")?.let {
-            val users = Gson().fromJson(it, Array<User>::class.java).toList()
-            intent.putExtra("users", it)
         }
     }
 }

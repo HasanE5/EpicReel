@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-
         val allMovies = mutableListOf<Movies>()
 
 
@@ -144,8 +143,6 @@ class MainActivity : AppCompatActivity() {
                 "The Odyssey (2026) is about Odysseus trying to get home after war, facing many dangers.",
             )
         )
-
-
 
 
         val adapterAll = AllMoviesAdapter(allMovies)
@@ -325,17 +322,17 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.nav_profile -> {
-                    intent.getStringExtra("users")?.let {
-                        val users = Gson().fromJson(it, Array<User>::class.java).toList()
-                        val intent = Intent(this, ProfileActivity::class.java)
-                        intent.putExtra("users", it)
-                        startActivity(intent)
-                    }
+                    val allMovies = Gson().toJson(allMovies)
+                    val intent = Intent(this, ProfileActivity::class.java)
+                    intent.putExtra("movies", allMovies)
+                    startActivity(intent)
                     true
                 }
 
                 R.id.nav_favorites -> {
+                    val allMovies = Gson().toJson(allMovies)
                     val intent = Intent(this, FavoritesActivity::class.java)
+                    intent.putExtra("movies", allMovies)
                     startActivity(intent)
                     true
                 }

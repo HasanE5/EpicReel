@@ -30,28 +30,14 @@ class SignUpActivity : AppCompatActivity() {
         binding.btnSign.setOnClickListener {
             val email = binding.editText.text.toString()
             val password = binding.editTextEnterPassword.text.toString()
-            intent.getStringExtra("users")?.let {
-                val users = Gson().fromJson(it, Array<User>::class.java).toList()
-                val user = users.find { it.email == email && it.password == password }
 
-                if (user != null) {
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
+            if (email.isNotEmpty() && password.isNotEmpty()) {
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
 
-                } else {
-                    Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
-                }
+            } else {
+                Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
             }
-
-
         }
-
-
-        binding.textSignUp.setOnClickListener {
-            val intent = Intent(this, CreatAccountActivity::class.java)
-            startActivity(intent)
-        }
-
-
     }
 }

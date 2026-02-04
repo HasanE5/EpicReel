@@ -9,7 +9,9 @@
     import androidx.core.view.ViewCompat
     import androidx.core.view.WindowInsetsCompat
     import androidx.recyclerview.widget.LinearLayoutManager
+    import com.google.gson.Gson
     import com.hasan.ahmed.belal.epic_reel.Adapter.FavoritesAdapter
+    import com.hasan.ahmed.belal.epic_reel.Adapter.SearchAdapter
     import com.hasan.ahmed.belal.epic_reel.databinding.ActivityFavoritesBinding
 
     class FavoritesActivity : AppCompatActivity() {
@@ -45,16 +47,22 @@
             binding.bottomNav.setOnItemSelectedListener { item ->
                 when (item.itemId) {
                     R.id.nav_favorites -> true
-                    R.id.nav_search -> {
-                        startActivity(Intent(this, SearchActivity::class.java))
-                        true
-                    }
+
                     R.id.nav_home -> {
-                        startActivity(Intent(this, MainActivity::class.java))
+                        val intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
                         true
                     }
+
+                    R.id.nav_search -> {
+                        val intent = Intent(this, SearchActivity::class.java)
+                        startActivity(intent)
+                        true
+                    }
+
                     R.id.nav_profile -> {
-                        startActivity(Intent(this, FavoritesActivity::class.java))
+                        val intent = Intent(this, ProfileActivity::class.java)
+                        startActivity(intent)
                         true
                     }
                     else -> false

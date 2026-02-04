@@ -22,16 +22,7 @@ class ViewMovieActivity : AppCompatActivity() {
             insets
         }
 
-        val json = intent.getStringExtra("movie")
-        if (json != null) {
-            val movie = Gson().fromJson(json, Movies::class.java)
-            binding.movieImage.setImageResource(movie.image)
-            binding.movieTitle.text = movie.name
-            binding.date.text = movie.date
-            binding.time.text = movie.time
-            binding.description.text = movie.description
-            binding.rate.text = movie.rating
-        }
+
 
 
 

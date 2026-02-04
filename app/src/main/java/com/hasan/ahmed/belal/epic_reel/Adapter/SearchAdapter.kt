@@ -32,12 +32,6 @@ class SearchAdapter(
         holder.binding.movieImage.setImageResource(movie.image)
         holder.binding.movieRate.text = movie.rating
 
-        holder.itemView.setOnClickListener {
-            val context = holder.itemView.context
-            val intent = Intent(context, ViewMovieActivity::class.java)
-            intent.putExtra("movie", Gson().toJson(movie))
-            context.startActivity(intent)
-        }
     }
 
     override fun getItemCount(): Int = list.size
