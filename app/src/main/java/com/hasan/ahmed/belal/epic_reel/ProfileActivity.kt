@@ -24,7 +24,8 @@ class ProfileActivity : AppCompatActivity() {
         }
 
         val sharePref = getSharedPreferences("AppPref", MODE_PRIVATE)
-        val savedJson =  sharePref.getString("savedUser", null)
+        // FIX: Read from "currentUser" which is set on login
+        val currentUserJson =  sharePref.getString("currentUser", null)
 
         val moviesJson = intent.getStringExtra("movies")
         val allMovies = if (moviesJson.isNullOrEmpty() || moviesJson == "null") {
@@ -68,14 +69,25 @@ class ProfileActivity : AppCompatActivity() {
         }
 
         val gson = Gson()
+        // FIX: Check if user data exists and display it
+        if (currentUserJson != null) {
+            val currentUser = gson.fromJson(currentUserJson, User::class.java)
+            binding.etName.setText(currentUser.fullName)
+            binding.etEmail.setText(currentUser.email)
+        }
 
+        binding.btnLogout.setOnClickListener {
+            val editor = sharePref.edit()
+            editor.putBoolean("isLoggedIn", false)
+            // Also clear the user data on logout
+            editor.remove("currentUser")
+            editor.apply()
 
-        val savedUser = gson.fromJson(savedJson, User::class.java)
-        val fullName = savedUser.fullName
-        val email = savedUser.email
-
-        binding.etName.setText(fullName)
-        binding.etEmail.setText(email)
+            val intent = Intent(this, SignUpActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+            finish()
+        }
 
     }
 }
