@@ -17,6 +17,15 @@ class SignUpActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val sharePref = getSharedPreferences("AppPref", MODE_PRIVATE)
+        if (sharePref.getBoolean("isLoggedIn", false)) {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+            return
+        }
+
         enableEdgeToEdge()
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -26,18 +35,34 @@ class SignUpActivity : AppCompatActivity() {
             insets
         }
 
+        val savedJson = sharePref.getString("savedUser", null)
+        val gson = Gson()
 
         binding.btnSign.setOnClickListener {
             val email = binding.editText.text.toString()
             val password = binding.editTextEnterPassword.text.toString()
 
-            if (email.isNotEmpty() && password.isNotEmpty()) {
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-
+            if (savedJson != null) {
+                val savedUser = gson.fromJson(savedJson, User::class.java)
+                if (savedUser.email == email && savedUser.password == password) {
+                    Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
+                    val editor = sharePref.edit()
+                    editor.putBoolean("isLoggedIn", true)
+                    editor.apply()
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                } else {
+                    Toast.makeText(this, "Invalid email or password", Toast.LENGTH_SHORT).show()
+                }
             } else {
-                Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Please sign up first", Toast.LENGTH_SHORT).show()
             }
+        }
+
+        binding.textSignUp.setOnClickListener {
+            val intent = Intent(this, CreatAccountActivity::class.java)
+            startActivity(intent)
         }
     }
 }

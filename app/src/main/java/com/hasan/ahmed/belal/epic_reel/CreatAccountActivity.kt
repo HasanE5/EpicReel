@@ -38,13 +38,14 @@ class CreatAccountActivity : AppCompatActivity() {
             } else if (pass == confirmPass && pass.length < 8) {
                 binding.EditTextPassword.error = "password must be at least 8 characters"
             }else {
-                val user = User(name, email, pass)
-                users.add(user)
-                val usersFile = Gson().toJson(users)
+                val sharedPref = getSharedPreferences("AppPref", MODE_PRIVATE)
+                val editor = sharedPref.edit()
+
+                val newUser = User(name, email, pass, false)
+                editor.putString("savedUser", newUser.toJSON())
+                editor.apply()
+
                 val intent = android.content.Intent(this, SignUpActivity::class.java)
-                intent.putExtra("users", usersFile)
-                val intent2 = android.content.Intent(this, MainActivity::class.java)
-                intent2.putExtra("users", usersFile)
                 startActivity(intent)
             }
         }

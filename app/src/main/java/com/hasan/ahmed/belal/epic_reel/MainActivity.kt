@@ -155,7 +155,7 @@ class MainActivity : AppCompatActivity() {
         val bigPosterMovies = mutableListOf<Movies>()
         bigPosterMovies.add(
             Movies(
-                "avengers",
+                "Avengers",
                 R.drawable.avengers_endgame_poster,
                 "2019",
                 "3h 1m",

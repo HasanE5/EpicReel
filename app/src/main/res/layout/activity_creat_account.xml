@@ -13,7 +13,7 @@
         android:id="@+id/textCreatAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
         android:text="Creat Account"
         android:textColor="@color/primary_text"
@@ -196,20 +196,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/EditTextConfirmPassword"
         tools:ignore="TextSizeCheck" />
+<LinearLayout
+    android:id="@+id/loginPage"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toBottomOf="@id/btnSgin"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:gravity="center"
+    >
 
-    <TextView
-        android:id="@+id/TextSignUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="Sign Up"
-        android:textColor="@color/accent_red"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textAleadyhaveaccount"
-        app:layout_constraintTop_toBottomOf="@+id/btnSgin"
-        app:layout_constraintVertical_bias="0.227"
-        tools:ignore="TextSizeCheck" />
 
     <TextView
         android:id="@+id/textAleadyhaveaccount"
@@ -218,9 +214,29 @@
         android:text="Aleady have account?"
         android:textColor="@color/secondary_text"
         android:textSize="15dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/TextSignUp"
-        tools:ignore="MissingConstraints,TextSizeCheck"
-        tools:layout_editor_absoluteX="96dp" />
+        android:paddingEnd="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/TextSignUp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSgin"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints,TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/TextSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        android:textColor="@color/accent_red"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textAleadyhaveaccount"
+        app:layout_constraintTop_toBottomOf="@+id/btnSgin"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="TextSizeCheck" />
+</LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

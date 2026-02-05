@@ -25,41 +25,11 @@ class SearchActivity : AppCompatActivity() {
             insets
         }
 
-        binding.bottomNav.selectedItemId = R.id.nav_search
-        binding.bottomNav.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.nav_search -> true
-                R.id.nav_home -> {
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
-                    true
-                }
-
-                R.id.nav_profile -> {
-                    val intent = Intent(this, ProfileActivity::class.java)
-                    startActivity(intent)
-                    true
-                }
-
-                R.id.nav_favorites -> {
-                    val intent = Intent(this, FavoritesActivity::class.java)
-                    startActivity(intent)
-                    true
-                }
-
-                else -> false
-            }
-        }
-
-        val json = intent.getStringExtra("movies")
-        val allMovies = if (json != null) {
-            try {
-                Gson().fromJson(json, Array<Movies>::class.java).toMutableList()
-            } catch (e: Exception) {
-                mutableListOf()
-            }
+        val moviesJson = intent.getStringExtra("movies")
+        val allMovies = if (moviesJson.isNullOrEmpty() || moviesJson == "null") {
+            mutableListOf<Movies>()
         } else {
-            mutableListOf()
+            Gson().fromJson(moviesJson, Array<Movies>::class.java).toMutableList()
         }
 
         binding.movies.layoutManager = GridLayoutManager(this, 2)
@@ -75,7 +45,6 @@ class SearchActivity : AppCompatActivity() {
             }
 
             if (searchText.length <= 2) {
-                binding.tvNotFound.visibility = View.GONE
                 binding.tvNotFound.text = "This movie not found"
                 binding.tvNotFound.visibility = View.VISIBLE
                 binding.movies.adapter = null
@@ -94,6 +63,31 @@ class SearchActivity : AppCompatActivity() {
                 binding.tvNotFound.visibility = View.GONE
                 val adapter = SearchAdapter(searchMovies.toMutableList())
                 binding.movies.adapter = adapter
+            }
+        }
+
+        binding.bottomNav.selectedItemId = R.id.nav_search
+        binding.bottomNav.setOnItemSelectedListener { item ->
+            val currentMoviesJson = Gson().toJson(allMovies)
+            when (item.itemId) {
+                R.id.nav_search -> true
+                R.id.nav_home -> {
+                    startActivity(Intent(this, MainActivity::class.java))
+                    true
+                }
+                R.id.nav_profile -> {
+                    val intent = Intent(this, ProfileActivity::class.java)
+                    intent.putExtra("movies", currentMoviesJson)
+                    startActivity(intent)
+                    true
+                }
+                R.id.nav_favorites -> {
+                    val intent = Intent(this, FavoritesActivity::class.java)
+                    intent.putExtra("movies", currentMoviesJson)
+                    startActivity(intent)
+                    true
+                }
+                else -> false
             }
         }
     }
