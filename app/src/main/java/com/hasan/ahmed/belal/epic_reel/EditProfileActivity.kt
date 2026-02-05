@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.hasan.ahmed.belal.epic_reel.databinding.ActivityEditProfileBinding
 import com.hasan.ahmed.belal.epic_reel.model.User
 
@@ -24,37 +25,60 @@ class EditProfileActivity : AppCompatActivity() {
         }
 
         val sharePref = getSharedPreferences("AppPref", MODE_PRIVATE)
-        val savedJson = sharePref.getString("savedUser", null)
-
         val gson = Gson()
 
-        val savedUser = gson.fromJson(savedJson, User::class.java)
+        val currentUserJson = sharePref.getString("currentUser", null)
+        if (currentUserJson == null) {
+            Toast.makeText(this, "Error: No user data found.", Toast.LENGTH_SHORT).show()
+            finish()
+            return
+        }
+        val currentUser = gson.fromJson(currentUserJson, User::class.java)
 
-        binding.etName.setText(savedUser.fullName)
-        binding.etEmail.setText(savedUser.email)
-
+        binding.etName.setText(currentUser.fullName)
+        binding.etEmail.setText(currentUser.email)
 
         binding.cancelButton.setOnClickListener {
             finish()
         }
 
         binding.saveButton.setOnClickListener {
-            val fullName = binding.etName.text.toString()
-            val email = binding.etEmail.text.toString()
-            if (fullName.isEmpty() || email.isEmpty()) {
+            val newFullName = binding.etName.text.toString()
+            val newEmail = binding.etEmail.text.toString()
+
+            if (newFullName.isEmpty() || newEmail.isEmpty()) {
                 Toast.makeText(this, "Enter all fields", Toast.LENGTH_SHORT).show()
-            } else if (fullName == savedUser.fullName && email == savedUser.email) {
-                Toast.makeText(this, "No changes made", Toast.LENGTH_SHORT).show()
-            } else {
+                return@setOnClickListener
+            }
+            
+            if (newFullName == currentUser.fullName && newEmail == currentUser.email) {
+                Toast.makeText(this, "No changes were made.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val usersJson = sharePref.getString("users", null)
+            val users: MutableList<User> = if (usersJson == null) mutableListOf() else {
+                gson.fromJson(usersJson, object : TypeToken<MutableList<User>>() {}.type)
+            }
+
+            val userToUpdate = users.find { it.email == currentUser.email }
+            if (userToUpdate != null) {
+                userToUpdate.fullName = newFullName
+                userToUpdate.email = newEmail
+
+                currentUser.fullName = newFullName
+                currentUser.email = newEmail
+
                 val editor = sharePref.edit()
-                savedUser.fullName = fullName
-                savedUser.email = email
-                val updatedUserJson = gson.toJson(savedUser)
-                editor.putString("savedUser", updatedUserJson)
+                editor.putString("users", gson.toJson(users))
+                editor.putString("currentUser", gson.toJson(currentUser))
                 editor.apply()
+
                 Toast.makeText(this, "Profile updated successfully", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, ProfileActivity::class.java)
                 startActivity(intent)
+            } else {
+                Toast.makeText(this, "Error: Could not update profile. Please log in again.", Toast.LENGTH_LONG).show()
             }
         }
     }

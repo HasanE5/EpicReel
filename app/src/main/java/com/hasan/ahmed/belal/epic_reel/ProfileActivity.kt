@@ -24,7 +24,6 @@ class ProfileActivity : AppCompatActivity() {
         }
 
         val sharePref = getSharedPreferences("AppPref", MODE_PRIVATE)
-        // FIX: Read from "currentUser" which is set on login
         val currentUserJson =  sharePref.getString("currentUser", null)
 
         val moviesJson = intent.getStringExtra("movies")
@@ -35,7 +34,10 @@ class ProfileActivity : AppCompatActivity() {
         }
 
         binding.btnEdit.setOnClickListener {
-            startActivity(Intent(this, EditProfileActivity::class.java))
+            val intent = Intent(this, EditProfileActivity::class.java)
+            intent.putExtra("currentUser", currentUserJson)
+            startActivity(intent)
+
         }
 
         binding.bottomNav.selectedItemId = R.id.nav_profile
@@ -69,7 +71,6 @@ class ProfileActivity : AppCompatActivity() {
         }
 
         val gson = Gson()
-        // FIX: Check if user data exists and display it
         if (currentUserJson != null) {
             val currentUser = gson.fromJson(currentUserJson, User::class.java)
             binding.etName.setText(currentUser.fullName)
