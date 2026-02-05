@@ -90,5 +90,10 @@ class ProfileActivity : AppCompatActivity() {
             finish()
         }
 
+        binding.btnAbout.setOnClickListener {
+            val intent = Intent(this, AboutActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }
