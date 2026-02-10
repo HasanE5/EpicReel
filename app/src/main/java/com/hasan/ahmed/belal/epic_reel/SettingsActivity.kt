@@ -15,9 +15,7 @@ class SettingsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_settings
-        )
-
+        setContentView(R.layout.activity_settings)
 
         val cvAbout = findViewById<CardView>(R.id.cvAbout)
         cvAbout.setOnClickListener {
@@ -25,39 +23,26 @@ class SettingsActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-
-        // SharedPreferences لتخزين إعدادات المستخدم
         sharedPrefs = getSharedPreferences("AppSettingsPrefs", MODE_PRIVATE)
 
-        // Dark Mode Toggle
         val swDarkMode = findViewById<SwitchCompat>(R.id.swDarkMode)
-
-        // استرجاع القيمة المخزنة سابقًا
         val isDarkMode = sharedPrefs.getBoolean("DarkMode", false)
         swDarkMode.isChecked = isDarkMode
         applyDarkMode(isDarkMode)
 
         swDarkMode.setOnCheckedChangeListener { _, isChecked ->
             applyDarkMode(isChecked)
-            // حفظ الاختيار
             sharedPrefs.edit().putBoolean("DarkMode", isChecked).apply()
         }
 
-        // Push Notifications Toggle
         val swPushNotifications = findViewById<SwitchCompat>(R.id.swPushNotifications)
-
-        // استرجاع القيمة المخزنة سابقًا
         val isPushEnabled = sharedPrefs.getBoolean("PushNotifications", true)
         swPushNotifications.isChecked = isPushEnabled
 
         swPushNotifications.setOnCheckedChangeListener { _, isChecked ->
-            // حفظ الاختيار
             sharedPrefs.edit().putBoolean("PushNotifications", isChecked).apply()
-            // هنا ممكن تضيف كود لتفعيل/إلغاء إشعارات التطبيق
         }
 
-
-        // Back button
         findViewById<Button>(R.id.btnBack).setOnClickListener {
             finish()
         }

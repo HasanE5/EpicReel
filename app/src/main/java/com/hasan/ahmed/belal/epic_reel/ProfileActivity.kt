@@ -72,8 +72,8 @@ class ProfileActivity : AppCompatActivity() {
         }
 
         binding.btnManageGenres.setOnClickListener {
-            val inetnt = Intent(this, GenresActivity::class.java)
-            startActivity(inetnt)
+            val intent = Intent(this, GenresActivity::class.java)
+            startActivity(intent)
         }
 
         val gson = Gson()

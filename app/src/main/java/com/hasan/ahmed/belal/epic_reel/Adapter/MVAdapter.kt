@@ -1,4 +1,4 @@
-package com.hasan.ahmed.belal.epic_reel
+package com.hasan.ahmed.belal.epic_reel.Adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.hasan.ahmed.belal.epic_reel.Movie
+import com.hasan.ahmed.belal.epic_reel.R
 
 class MovieAdapter(
     private val movies: List<Movie>,
@@ -24,11 +26,8 @@ class MovieAdapter(
             title.text = movie.title
             duration.text = movie.duration
             rating.text = movie.rating.toString()
-
-            // صورة افتراضية من drawable
             poster.setImageResource(R.drawable.ic_movie_placeholder)
 
-            // حدث الضغط على العنصر
             itemView.setOnClickListener {
                 onMovieClick(movie)
             }
