@@ -210,24 +210,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btnManageGenres" />
 
-            <Button
-                android:id="@+id/btnAbout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/field_background"
-                android:drawableLeft="@drawable/info"
-                android:drawablePadding="10dp"
-                android:gravity="start"
-                android:padding="10dp"
-                android:text="About"
-                android:textAllCaps="false"
-                android:textColor="@color/primary_text"
-                android:textSize="16sp"
-                android:textStyle="normal"
-                app:cornerRadius="12dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnLogout" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

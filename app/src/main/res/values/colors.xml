@@ -3,4 +3,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="transparent">#00FFFFFF</color>
+    <color name="epicreel_dark_bg">#121212</color>
+    <color name="epicreel_card_bg">#1E1E1E</color>
+    <color name="epicreel_text_primary">#FFFFFF</color>
+    <color name="epicreel_text_secondary">#B0B0B0</color>
+    <color name="epicreel_accent">#E53935</color>
+    <color name="epicreel_star">#FFD700</color>
+    <color name="epicreel_divider">#424242</color>
 </resources>

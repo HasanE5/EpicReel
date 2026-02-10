@@ -40,6 +40,12 @@ class ProfileActivity : AppCompatActivity() {
 
         }
 
+        binding.btnSetting.setOnClickListener {
+            val intent = Intent(this, SettingsActivity::class.java)
+            startActivity(intent)
+        }
+
+
         binding.bottomNav.selectedItemId = R.id.nav_profile
         binding.bottomNav.setOnItemSelectedListener { item ->
             val currentMoviesJson = Gson().toJson(allMovies)
@@ -90,10 +96,7 @@ class ProfileActivity : AppCompatActivity() {
             finish()
         }
 
-        binding.btnAbout.setOnClickListener {
-            val intent = Intent(this, AboutActivity::class.java)
-            startActivity(intent)
-        }
+
 
     }
 }
